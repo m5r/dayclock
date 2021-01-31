@@ -59,7 +59,7 @@
         }
 	</style>
 	<style>
-        html, body, #clock {
+        html, body {
             height: 100%;
             width: 100%;
         }
@@ -74,8 +74,13 @@
 
 <script>
 	const canvas = document.getElementById("clock");
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+	if (window.innerHeight > window.innerWidth) {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerWidth;
+	} else {
+		canvas.width = window.innerHeight;
+		canvas.height = window.innerHeight;
+	}
 
 	const ctx = canvas.getContext("2d");
 	const center = canvas.height / 2;
